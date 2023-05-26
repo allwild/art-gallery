@@ -29,6 +29,10 @@ nav + h1 {
   margin: 30px 0;
 }
 
+nav button {
+  transform: skew(0deg, 2deg);
+}
+
 .singlepage-wrapper a {
   align-self: end;
   right: 10px;

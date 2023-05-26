@@ -67,7 +67,7 @@ export default function Tile({ pageSetter, page, setDetails }) {
     >
       <Link to={`/${page}`}>
         <IconButton >
-          <InfoTwoToneIcon sx={{fontSize: 30}}/>
+          <InfoTwoToneIcon sx={{fontSize: 30, color: "black"}}/>
         </IconButton>
       </Link>
 

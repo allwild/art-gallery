@@ -30,9 +30,29 @@ function App() {
           ),
         },
         {
-          path: `/${singlePageState}`,
-          element: <SinglePage page={singlePageState} details={activeDetails}/>,
+          path: `/dalí`,
+          element: <SinglePage details={activeDetails}/>,
         },
+        {
+          path: `/picasso`,
+          element: <SinglePage details={activeDetails}/>,
+        },
+        {
+          path: `/kahlo`,
+          element: <SinglePage details={activeDetails}/>,
+        },
+        {
+          path: `/carrington`,
+          element: <SinglePage details={activeDetails}/>,
+        },
+        {
+          path: `/oblinski`,
+          element: <SinglePage details={activeDetails}/>,
+        },
+        {
+          path: `/rené`,
+          element: <SinglePage details={activeDetails}/>,
+        }
       ],
     },
   ]);

@@ -3,17 +3,23 @@ import store from "./firestore";
 import { collection, query } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { IconButton } from "@mui/material";
+import InfoTwoToneIcon from '@mui/icons-material/InfoTwoTone';
+import { useNavigate } from "react-router-dom";
 
 const galleryRef = collection(store, "pics");
 const galleryQuery = query(galleryRef);
 const storage = getStorage();
 
+
+
 export default function Tile({ pageSetter, page, setDetails }) {
   const [items, loading] = useCollectionData(galleryQuery);
   const [URLs, setURLs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const generateURLs = async () => {
@@ -33,12 +39,11 @@ export default function Tile({ pageSetter, page, setDetails }) {
     return <div>Loading...</div>;
   }
 
-  
 
   function handleClick(shorthand, url, artist, title, description) {
-    pageSetter(shorthand)
-    console.log(page);
+    navigate(`/${shorthand}`)
     setDetails([url, artist, title, description]);
+
   }
   
   const mapping = items.map((obj, index) => (
@@ -61,13 +66,17 @@ export default function Tile({ pageSetter, page, setDetails }) {
       }}
     >
       <Link to={`/${page}`}>
-        <Button variant="contained">Details</Button>
+        <IconButton >
+          <InfoTwoToneIcon sx={{fontSize: 30}}/>
+        </IconButton>
       </Link>
 
       <span>
-        {obj.artist}: {obj.title}
+        <strong>
+          {obj.artist} : {obj.title}
+        </strong>
       </span>
-      <FavoriteIcon />
+      <FavoriteBorderRoundedIcon sx={{fontSize: 30}}/>
     </div>
   ));
 

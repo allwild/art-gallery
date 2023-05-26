@@ -5,7 +5,7 @@ export default function Navbar() {
 
     return (
         <nav>
-            < ShutterSpeedIcon sx={{fontSize: 60}}/>
+            < ShutterSpeedIcon sx={{fontSize: 60, color: 'white'}}/>
             <Signout />
         </nav>
         

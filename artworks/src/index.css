@@ -2,35 +2,36 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 nav {
-  height: 70px;
-  background-color: rgb(165, 165, 165);
+  height: 90px;
+  background-color: rgb(15, 15, 15);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 40px;
+  transform: skew(0deg, -2deg);
 }
 
 nav + h1 {
   text-align: center;
+  margin: 30px 0;
 }
 
-.tile-wrapper button {
-  position: absolute;
-  left: 10px;
-  top: 10px;
+.singlepage-wrapper a {
+  align-self: end;
+  right: 10px;
 }
 
 .tile > span {
@@ -52,22 +53,69 @@ button > a {
   height: 250px;
   width: 250px;
   font-weight: 500;
+  overflow: hidden;
 }
 
-.tile > svg {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+.tile:hover {
+  opacity: 0.6;
+}
+
+.tile:hover span {
+  opacity: 1;
 }
 
 .tile > svg:hover {
-  color: red;
+  color: rgb(187, 0, 0);
+  cursor: pointer;
+}
+
+.tile > svg {
+  transform: translateY(-150%);
+}
+
+.tile:hover > svg {
+  animation: 0.5s forwards slideinlower;
+}
+
+@keyframes slideinlower {
+  from {
+    transform: translateY(-150%);
+  }
+
+  to {
+    transform: translateY(35%);
+  }
+}
+
+.tile button {
+  transform: translateY(-120%);
+}
+
+.tile:hover button {
+  animation: 0.5s forwards slidein;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-150%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
 }
 
 .tile-wrapper {
+  padding: 0 15%;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  align-items: center;
+}
+
+.tile-wrapper span {
+  opacity: 0;
 }
 
 /* SinglePage */
@@ -75,5 +123,43 @@ button > a {
 .singlepage-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
   gap: 10px;
+}
+
+.singlepage-wrapper img,
+.singlepage-wrapper p {
+  width: 60vw;
+}
+
+/* Login */
+
+.outer {
+  height: 70vh;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/artworks-af2d9.appspot.com/o/photo-1612487528505-d2338264c821.avif?alt=media&token=25b08313-f051-4f9e-ac55-265a8a4516f7");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer span {
+  font-size: 60px;
+  color: white;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.inner {
+  height: 30vh;
+  background-color: rgb(252, 252, 241);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }

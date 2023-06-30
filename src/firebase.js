@@ -8,7 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCkfou4nwUxNq9fUW4x-6c3c5A5Cy4F2Vc",
-  authDomain: "allwild.github.io/art-gallery",
+  authDomain: "artworks-af2d9.firebaseapp.com",
   projectId: "artworks-af2d9",
   storageBucket: "artworks-af2d9.appspot.com",
   messagingSenderId: "828157544110",

@@ -22,4 +22,6 @@ const analytics = getAnalytics(app);
 
 /* Na ez látszik-e */
 
+
+/* Akkor ez már nem látszik */
 export default app

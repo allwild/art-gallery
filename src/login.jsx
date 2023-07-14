@@ -8,6 +8,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { styled } from "styled-components";
 
 export default function Login() {
+    
     const handleLogin = () => {
         const provider = new GoogleAuthProvider()
         signInWithPopup(auth, provider)

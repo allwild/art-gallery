@@ -22,6 +22,10 @@ export default function Tile({ pageSetter, page, setDetails }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(items)
+  })
+
+  useEffect(() => {
     const generateURLs = async () => {
       if (items && items.length > 0) {
         const urls = await Promise.all(
@@ -43,7 +47,6 @@ export default function Tile({ pageSetter, page, setDetails }) {
   function handleClick(shorthand, url, artist, title, description) {
     navigate(`/${shorthand}`)
     setDetails([url, artist, title, description]);
-
   }
   
   const mapping = items.map((obj, index) => (

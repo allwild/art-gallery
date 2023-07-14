@@ -12,6 +12,12 @@ function App() {
   const [singlePageState, singlePageStateSetter] = useState("");
   const [activeDetails, activeDetailsSetter] = useState([]);
 
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+    }
+  })
+
 
   const router = createBrowserRouter([
     {

@@ -138,25 +138,31 @@ button > a {
   width: 60vw;
 }
 
+.singlepage-wrapper a {
+  text-decoration: none;
+}
+
 /* Login */
 
 .outer {
+  position: relative;
   height: 70vh;
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/artworks-af2d9.appspot.com/o/photo-1612487528505-d2338264c821.avif?alt=media&token=25b08313-f051-4f9e-ac55-265a8a4516f7");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/artworks-af2d9.appspot.com/o/8203957.jpg?alt=media&token=1eb05f50-da79-4646-b970-8c84d5f42ef5");
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  justify-content: center;
+  justify-content: center;  
   align-items: center;
 }
 
 .outer span {
   font-size: 60px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-family: 'Abril Fatface', cursive;
+  text-align: center;
 }
 
 .inner {
@@ -166,4 +172,16 @@ button > a {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  
+}
+
+@media (max-width: 600px) {
+  .inner {
+    gap: 5px !important;
+    justify-content: space-around !important;
+  }
+
+  .tile-wrapper {
+    padding-bottom: 50px;
+  }
 }

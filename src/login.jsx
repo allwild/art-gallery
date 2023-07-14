@@ -5,6 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { styled } from "styled-components";
 
 export default function Login() {
     const handleLogin = () => {
@@ -19,6 +20,9 @@ export default function Login() {
             <div className="outer">
                 <span>The Art Gallery</span>
                 <Button onClick={handleLogin} variant="contained">Sign in with Google</Button>
+                <RefSpan>
+                    Image by <a href="https://www.freepik.com/free-vector/flat-design-geometric-pattern-background_34915912.htm#&position=18&from_view=search&track=ais">Freepik</a>
+                </RefSpan>
             </div>
             <div className="inner">
                 <TwitterIcon sx={{fontSize: '5rem'}}/>
@@ -29,3 +33,16 @@ export default function Login() {
         </div>
     )
 }
+
+const RefSpan = styled.span`
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: initial !important;
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+`

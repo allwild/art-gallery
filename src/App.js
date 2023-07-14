@@ -6,11 +6,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout.jsx";
 import { useState, useEffect } from "react";
 import SinglePage from "./singlepage.jsx";
+import { collection, query } from "firebase/firestore";
+import store from "./firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
 function App() {
   const [user] = useAuthState(auth);
   const [singlePageState, singlePageStateSetter] = useState("");
   const [activeDetails, activeDetailsSetter] = useState([]);
+  const galleryRef = collection(store, "pics");
+  const galleryQuery = query(galleryRef);
+  const [items, loading] = useCollectionData(galleryQuery);
 
   useEffect(() => {
     if (user) {
@@ -32,33 +38,15 @@ function App() {
               page={singlePageState}
               user={user}
               setDetails={activeDetailsSetter}
+              items={items}
+              loading={loading}
             />
           ),
         },
-        {
-          path: `/dalí`,
+        ...items.map((item) => ({
+          path: `/${item.shorthand}`,
           element: <SinglePage details={activeDetails}/>,
-        },
-        {
-          path: `/picasso`,
-          element: <SinglePage details={activeDetails}/>,
-        },
-        {
-          path: `/kahlo`,
-          element: <SinglePage details={activeDetails}/>,
-        },
-        {
-          path: `/carrington`,
-          element: <SinglePage details={activeDetails}/>,
-        },
-        {
-          path: `/oblinski`,
-          element: <SinglePage details={activeDetails}/>,
-        },
-        {
-          path: `/rené`,
-          element: <SinglePage details={activeDetails}/>,
-        }
+        }))
       ],
     },
   ]);

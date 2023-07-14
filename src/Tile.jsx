@@ -1,23 +1,19 @@
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import store from "./firestore";
-import { collection, query } from "firebase/firestore";
+
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
 import { IconButton } from "@mui/material";
 import InfoTwoToneIcon from '@mui/icons-material/InfoTwoTone';
 import { useNavigate } from "react-router-dom";
 
-const galleryRef = collection(store, "pics");
-const galleryQuery = query(galleryRef);
+
 const storage = getStorage();
 
 
 
-export default function Tile({ pageSetter, page, setDetails }) {
-  const [items, loading] = useCollectionData(galleryQuery);
+export default function Tile({ page, setDetails, items, loading }) {
+  
   const [URLs, setURLs] = useState([]);
   const navigate = useNavigate();
 
